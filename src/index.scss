@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+
+@mixin media($size) {
+  @media(max-width:#{$size}px) {
+    @content
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(45deg, rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+}
+
+.title {
+  font-size: 4em;
+  color: white;
+  text-shadow: 0 0 5px white;
+  padding-bottom: 10px;
+  border-bottom: 2px white solid;
+}
+
+.leaderboard {
+  width: 50%;
+  padding-left: 25px;
+  
+  &__preload{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+.member {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &:not(:last-child) {
+    border-bottom: 2px white solid;
+  }
+  
+  &__place{
+    width: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: monospace;
+    color: white;
+  }
+  &__name{
+    flex-grow: 1;
+    font-size: 18px;
+    color: white;
+  }
+  &__time{
+    width: 100px;
+    color: white;
+  }
+}
+
+.form{
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  
+  &__input{
+    flex-grow: 1;
+    margin-right: 15px;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 5px 10px;
+    border-bottom: 2px white solid;
+    font-size: 18px;
+    color: white;
+    &::placeholder{
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 18px;
+    }
+  }
+  &__button{
+    border: none;
+    background: white;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+}
+
+.game {
+  width: 50%;
+  padding-right: 25px;
+  
+  &__button{
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background: white;
+    padding: 10px 20px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
