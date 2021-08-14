@@ -39,8 +39,8 @@ body {
 .leaderboard {
   width: 50%;
   padding-left: 25px;
-  
-  &__preload{
+
+  &__preload {
     color: white;
     font-size: 20px;
     text-align: center;
@@ -58,31 +58,33 @@ body {
   &:not(:last-child) {
     border-bottom: 2px white solid;
   }
-  
-  &__place{
+
+  &__place {
     width: 50px;
     font-weight: bold;
     font-size: 20px;
     font-family: monospace;
     color: white;
   }
-  &__name{
+
+  &__name {
     flex-grow: 1;
     font-size: 18px;
     color: white;
   }
-  &__time{
+
+  &__time {
     width: 100px;
     color: white;
   }
 }
 
-.form{
+.form {
   display: flex;
   align-items: center;
   margin-top: 15px;
-  
-  &__input{
+
+  &__input {
     flex-grow: 1;
     margin-right: 15px;
     border: none;
@@ -92,12 +94,14 @@ body {
     border-bottom: 2px white solid;
     font-size: 18px;
     color: white;
-    &::placeholder{
+
+    &::placeholder {
       color: rgba(255, 255, 255, 0.7);
       font-size: 18px;
     }
   }
-  &__button{
+
+  &__button {
     border: none;
     background: white;
     outline: none;
@@ -110,8 +114,8 @@ body {
 .game {
   width: 50%;
   padding-right: 25px;
-  
-  &__button{
+
+  &__button {
     font-size: 20px;
     border: none;
     outline: none;
@@ -121,5 +125,39 @@ body {
     margin: 20px auto;
     border-radius: 8px;
     cursor: pointer;
+  }
+
+  &__board {
+    display: grid;
+    width: 600px;
+    height: 600px;
+    grid-template: repeat(6, 1fr) / repeat(6, 1fr);
+    grid-gap: 15px;
+    margin: 25px auto;
+  }
+
+  &__card {
+    background: white;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    font-size: 50px;
+    transition: 0.5s color, 0.5s opacity;
+
+    &.deleted {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.opened {
+      color: blue;
+      pointer-events: none;
+    }
   }
 }

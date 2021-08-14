@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Game from './components/Game'
 import Member from './components/Member'
 import UsernameForm from './components/UsernameForm'
 import { FetchRecordsAction } from './store/actions'
@@ -18,7 +19,8 @@ function App() {
   }, [dispatch])
 
   const handleStart = () => setState('playing')
-  const handleFinish = () => setState('start')
+  const handleFinish = () => setState('finished')
+  const handleReturn = () => setState('start')
 
   return (
     <div className="wrapper">
@@ -30,8 +32,13 @@ function App() {
             Начать
           </button>
         )}
+        
+        {state === 'playing' && (
+          <Game finish={handleFinish} />
+        )}
+        
         {state === 'finished' && (
-          <button className="game__button" onClick={handleFinish}>
+          <button className="game__button" onClick={handleReturn}>
             Ок
           </button>
         )}
