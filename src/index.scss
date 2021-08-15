@@ -150,7 +150,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    color: red;
+    color: transparent;
     font-size: 50px;
     transition: 0.5s color, 0.5s opacity;
 
@@ -160,7 +160,7 @@ body {
     }
 
     &.opened {
-      color: blue;
+      color: red;
       pointer-events: none;
     }
   }
