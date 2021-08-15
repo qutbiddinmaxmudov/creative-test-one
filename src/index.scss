@@ -16,6 +16,7 @@ body {
   font-family: 'Oxygen', sans-serif;
   min-height: 100vh;
   background: linear-gradient(45deg, rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+  user-select: none;
 }
 
 .wrapper {
@@ -54,6 +55,7 @@ body {
   display: flex;
   padding-left: 10px;
   padding-right: 10px;
+  user-select: text;
 
   &:not(:last-child) {
     border-bottom: 2px white solid;
@@ -76,6 +78,8 @@ body {
   &__time {
     width: 100px;
     color: white;
+    font-family: monospace;
+    font-size: 18px;
   }
 }
 
@@ -146,7 +150,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    color: white;
+    color: red;
     font-size: 50px;
     transition: 0.5s color, 0.5s opacity;
 
@@ -159,5 +163,17 @@ body {
       color: blue;
       pointer-events: none;
     }
+  }
+  &__end-title{ 
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  &__end-text{
+    text-align: center;
+    color: white;
+    font-size: 18px;
   }
 }

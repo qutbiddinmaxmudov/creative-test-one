@@ -1,9 +1,9 @@
 import { Action } from 'redux'
 
 export interface MemberInterface {
-  id: number
+  id?: number
   name: string
-  time: string
+  time: number
 }
 
 export enum GameLoadingStatus {
@@ -14,7 +14,7 @@ export enum GameLoadingStatus {
 }
 
 export interface GameStateInterface {
-  username: string | null
+  username: string
   members: MemberInterface[]
   status: GameLoadingStatus
 }

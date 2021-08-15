@@ -9,7 +9,7 @@ import {
   faCss3,
   faGulp,
   faJs,
-  faGit,
+  faGitAlt,
   faGithub,
   faStackOverflow,
   faAutoprefixer,
@@ -31,7 +31,7 @@ const icons = [
   faCss3,
   faGulp,
   faJs,
-  faGit,
+  faGitAlt,
   faGithub,
   faStackOverflow,
   faAutoprefixer,
@@ -69,30 +69,42 @@ const Game: React.FC<gameProps> = ({ finish }) => {
   const [gameIcons] = useState(randomCardsGenerator())
   const [deletedCards, setDeletedCards] = useState<IconDefinition[]>([])
   const [openedCards, setOpenedCards] = useState<WatchingCardsInterface[]>([])
+  const [blockClick, setBlockClick] = useState(false)
 
   const handleCardClick = (card: WatchingCardsInterface) => {
-    // Если уже открыто 2 карточки то больше не открываются
-    if (openedCards.length >= 2) return
+    // Если уже открыто 2 карточки то больше не открываются или если нажатие заблокировано
+    if (openedCards.length >= 2 || blockClick) return
     // Добавляем в state карту на которую нажали
     setOpenedCards([...openedCards, card])
-
     // setTimeout(() => setOpenedCards(openedCards.filter((cardNum) => cardNum !== number)), 5000)
   }
 
   useEffect(() => {
+    if (blockClick && deletedCards.length !== 36) setTimeout(() => setBlockClick(false), 1000)
+  }, [blockClick, deletedCards])
+
+  useEffect(() => {
+    // Ставим не большую задержку что бы мы успевали увидить карточку
     setTimeout(() => {
+      // Если 2 карты открыто то сравниваем их между собой
       if (openedCards.length === 2) {
         const [cardOne, cardTwo] = openedCards
+        // Если карты равны то
         if (cardOne.icon === cardTwo.icon) {
+          // Добавляем их в массив удалённых
           setDeletedCards([...deletedCards, cardOne.icon])
-          setOpenedCards([])
-        } else {
-          setOpenedCards([])
+          // Блокируем нажатие
+          setBlockClick(true)
         }
+        // И очищаем массив открытых карточек
+        setOpenedCards([])
       }
-      if (deletedCards.length === 18) finish()
+
+      // Если в массиве уже 36 элементов то заканчиваем игру
+      if (deletedCards.length === 36) finish()
     }, 1000)
-  }, [openedCards, deletedCards, finish])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openedCards, deletedCards])
 
   return (
     <div className="game__board">

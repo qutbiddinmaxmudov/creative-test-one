@@ -2,7 +2,7 @@ import produce, { Draft } from 'immer'
 import { GameActions, GameActionTypes, GameLoadingStatus, GameStateInterface } from '../types'
 
 const initialGameState: GameStateInterface = {
-  username: null,
+  username: '',
   members: [],
   status: GameLoadingStatus.NEVER,
 }

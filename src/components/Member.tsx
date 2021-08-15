@@ -5,7 +5,7 @@ interface MemberProps extends MemberInterface {
   place: number
 }
 
-const formatTime = (time: string) => {
+export const formatTime = (time: number | string) => {
   const addZero = (num: number) => (num < 10 ? '0' + Math.trunc(num) : Math.trunc(num))
   const noMS = +time / 1000
   const minutes = addZero(noMS / 60)
