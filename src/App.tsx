@@ -48,9 +48,7 @@ function App() {
             Начать
           </button>
         )}
-
         {state === 'playing' && <Game finish={handleFinish} />}
-
         {state === 'finished' && (
           <>
             <h3 className="game__end-title">Поздравляю вы прошли игру!</h3>

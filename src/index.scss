@@ -27,6 +27,10 @@ body {
   margin-right: auto;
   margin-left: auto;
   display: flex;
+
+  @include media(992) {
+    flex-direction: column;
+  }
 }
 
 .title {
@@ -35,11 +39,17 @@ body {
   text-shadow: 0 0 5px white;
   padding-bottom: 10px;
   border-bottom: 2px white solid;
+  text-align: center;
 }
 
 .leaderboard {
   width: 50%;
   padding-left: 25px;
+
+  @include media(992) {
+    width: 100%;
+    padding-left: 0;
+  }
 
   &__preload {
     color: white;
@@ -56,6 +66,9 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   user-select: text;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
+  background: rgba(128, 128, 128, 0.3);
+  backdrop-filter: blur(5px);
 
   &:not(:last-child) {
     border-bottom: 2px white solid;
@@ -119,6 +132,12 @@ body {
   width: 50%;
   padding-right: 25px;
 
+  @include media(992) {
+    width: 100%;
+    padding-right: 0;
+
+  }
+
   &__button {
     font-size: 20px;
     border: none;
@@ -138,6 +157,11 @@ body {
     grid-template: repeat(6, 1fr) / repeat(6, 1fr);
     grid-gap: 15px;
     margin: 25px auto;
+    
+    @include media(768){
+      width: 300px;
+      height: 300px; 
+    }
   }
 
   &__card {
@@ -153,6 +177,10 @@ body {
     color: transparent;
     font-size: 50px;
     transition: 0.5s color, 0.5s opacity;
+    
+    @include media(768){
+      font-size: 25px;
+    }
 
     &.deleted {
       opacity: 0;
@@ -164,14 +192,16 @@ body {
       pointer-events: none;
     }
   }
-  &__end-title{ 
+
+  &__end-title {
     text-align: center;
     color: white;
     font-size: 25px;
     margin-top: 15px;
     margin-bottom: 10px;
   }
-  &__end-text{
+
+  &__end-text {
     text-align: center;
     color: white;
     font-size: 18px;
